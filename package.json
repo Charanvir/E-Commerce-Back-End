@@ -1,0 +1,25 @@
+{
+  "name": "e-commerce-back-end",
+  "version": "1.0.0",
+  "description": "Node.js application using Sequelize to access a MySQL database. Deployed on heroku",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Charanvir/E-Commerce-Back-End.git"
+  },
+  "author": "Charanvir Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Charanvir/E-Commerce-Back-End/issues"
+  },
+  "homepage": "https://github.com/Charanvir/E-Commerce-Back-End#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.0"
+  }
+}
