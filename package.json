@@ -4,7 +4,10 @@
   "description": "Node.js application using Sequelize to access a MySQL database. Deployed on heroku",
   "main": "server.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
