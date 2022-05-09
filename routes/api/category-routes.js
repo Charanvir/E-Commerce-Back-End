@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
       'id',
       'category_name'
     ],
+    // this uses the associations defined in the models to show the products associated with each category
     include: [
       {
         model: Product,
@@ -60,6 +61,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new category
   Category.create({
+    // the post request requires the category_name value as a string
     category_name: req.body.category_name
   })
     .then(dbCommentData => res.json(dbCommentData))

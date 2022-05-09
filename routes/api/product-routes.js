@@ -17,6 +17,7 @@ router.get('/', (req, res) => {
       {
         model: Tag,
         attributes: ['id', 'tag_name'],
+        // using the ProductTag model and its association to join Product and Tag
         through: ProductTag,
         as: 'tags'
       }
@@ -67,6 +68,7 @@ router.get('/:id', (req, res) => {
 // create new product
 router.post('/', (req, res) => {
   Product.create({
+    // the rew.body can take all of these values
     product_name: req.body.product_name,
     price: req.body.price,
     stock: req.body.stock,

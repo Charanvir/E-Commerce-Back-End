@@ -32,6 +32,8 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
+    // uses the association defined in the ProductTag model and model index to join Tag and Product
+    // also defines which attributes from product to include
     include: [
       {
         model: Product,
