@@ -65,16 +65,54 @@ router.post('/', (req, res) => {
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
       console.log(err)
-      res.statys(500).json(errs)
+      res.status(500).json(errs)
     })
 });
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
+  Category.update(
+    {
+      category_name: req.body.category_name
+    },
+    {
+      where: {
+        id: req.params.id
+      }
+    }
+  )
+    .then(dbCommentData => {
+      if (!dbCommentData) {
+        res.status(404).json({ message: 'No category found with this ID' })
+        return;
+      }
+      res.json(dbCommentData)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json(err)
+    })
 });
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
+  Category.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbCommentData => {
+      if (!dbCommentData) {
+        console.log(dbCommentData)
+        res.status(404).json({ message: 'No category with this ID was found' })
+        return;
+      }
+      res.json(dbCommentData)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json(err)
+    })
 });
 
 module.exports = router;
